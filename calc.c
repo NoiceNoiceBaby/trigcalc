@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <math.h>
 // definitions
-#define PYTHAGORUSFORHYP(adj, opp) adj*adj+opp*opp
-#define PYTHAGORUSFORADJ(hyp, opp) hyp*hyp-opp*opp
-#define PYTHAGORUSFOROPP(hyp, adj) hyp*hyp-adj*adj
+#define PYTHAGORASFORHYP(adj, opp) adj*adj+opp*opp
+#define PYTHAGORASFORADJ(hyp, opp) hyp*hyp-opp*opp
+#define PYTHAGORASFOROPP(hyp, adj) hyp*hyp-adj*adj
 
 // sinelength function
-int sinelength(void)
+int sine_length(void)
 {
     // variable declaration
     int userinput;
@@ -51,7 +51,7 @@ int sinelength(void)
 }
 
 // cosinelength function
-int cosinelength(void)
+int cosine_length(void)
 {
     // variable declaration
     int userinput;
@@ -95,7 +95,7 @@ int cosinelength(void)
 }
 
 // tangentlength function
-int tangentlength(void)
+int tangent_length(void)
 {
     // variable declaration
     int userinput;
@@ -139,7 +139,7 @@ int tangentlength(void)
 }
 
 // lengthtrig function
-int lengthtrig(void)
+int length_trig(void)
 {
     // variable declaration
     int userinput;
@@ -157,17 +157,17 @@ int lengthtrig(void)
         // first case
         case 1:
             // running sinelength function
-            sinelength();
+            sine_length();
             break;
         // second case
         case 2:
             // running cosinelength function
-            cosinelength();
+            cosine_length();
             break;
         // third case
         case 3:
             // running tangentlength function
-            tangentlength();
+            tangent_length();
             break;
         // fourth case
         case 4:
@@ -184,7 +184,7 @@ int lengthtrig(void)
 }
 
 // sinemissingangle function
-int sinemissingangle(void)
+int sine_missing_angle(void)
 {
     // variables to declare 
     float opp, hyp, angle;
@@ -202,7 +202,7 @@ int sinemissingangle(void)
 }
 
 // cosinemissing angle function
-int cosinemissingangle(void)
+int cosine_missing_angle(void)
 {
     // variables to declare 
     float adj, hyp, angle;
@@ -220,7 +220,7 @@ int cosinemissingangle(void)
 }
 
 // tangentmissing angle function
-int tangentmissingangle(void)
+int tangent_missing_angle(void)
 {
     // variables to declare 
     float adj, opp, angle;
@@ -238,7 +238,7 @@ int tangentmissingangle(void)
 }
 
 // missing angle function
-int missingangle(void)
+int missing_angle(void)
 {
     // variable declaration
     int userinput;
@@ -256,17 +256,17 @@ int missingangle(void)
         // first case
         case 1:
             // running sinemissingangle function
-            sinemissingangle();
+            sine_missing_angle();
             break;
         // second case
         case 2:
             // running cosinemissingangle function
-            cosinemissingangle();
+            cosine_missing_angle();
             break;
         // third case
         case 3:
             // running tangentmissingangle function
-            tangentmissingangle();
+            tangent_missing_angle();
             break;
         // fourth case
         case 4:
@@ -283,7 +283,7 @@ int missingangle(void)
 }
 
 // trigonometryfunc function
-int trigonometryfunc(void)
+int trigonometry_func(void)
 {
     // variables to declare
     int userinput;
@@ -300,12 +300,12 @@ int trigonometryfunc(void)
         // first case
         case 1:
             // running lengthtrig function
-            lengthtrig();
+            length_trig();
             break;
         // second case
         case 2:
             // running missingangle function
-            missingangle();
+            missing_angle();
             break;
         // third case
         case 3:
@@ -322,8 +322,8 @@ int trigonometryfunc(void)
     return 0;
 }
 
-// pythagorusfunc function
-int pythagorusfunc(void)
+// pythagorasfunc function
+int pythagoras_func(void)
 {
     // variables to declare
     int userinput;
@@ -345,7 +345,7 @@ int pythagorusfunc(void)
         printf("enter length of opposite side\n");
         scanf("%lf", &opp);
         // macro function calls to solve length of hypotenuse
-        printf("the length of the hypotenuse is %f\n", sqrt(PYTHAGORUSFORHYP(adj, opp)));
+        printf("the length of the hypotenuse is %f\n", sqrt(PYTHAGORASFORHYP(adj, opp)));
     }
     else if (userinput == 2)
     {
@@ -357,7 +357,7 @@ int pythagorusfunc(void)
         printf("enter length of opposite side\n");
         scanf("%lf", &opp);
         // macro function calls to solve length of adjacent
-        printf("the length of the adjacent is %f\n", sqrt(PYTHAGORUSFORADJ(hyp, opp)));
+        printf("the length of the adjacent is %f\n", sqrt(PYTHAGORASFORADJ(hyp, opp)));
     } 
     else if (userinput == 3)
     {
@@ -369,7 +369,7 @@ int pythagorusfunc(void)
         printf("enter length of adjacent side\n");
         scanf("%f", &adj);
         // macro function calls to solve length of opposite
-        printf("the length of the opposite is %f\n", sqrt(PYTHAGORUSFOROPP(hyp, adj)));
+        printf("the length of the opposite is %f\n", sqrt(PYTHAGORASFOROPP(hyp, adj)));
     }
     else
     {
@@ -397,13 +397,13 @@ int main(void)
     {
         // first case
         case 1:
-            // running pythagorusfunc fucntion
-            pythagorusfunc();
+            // running pythagorasfunc fucntion
+            pythagoras_func();
             break;
         // second case
         case 2:
             // runing trigonometryfunc function
-            trigonometryfunc();
+            trigonometry_func();
             break;
         // third case
         case 3: 
