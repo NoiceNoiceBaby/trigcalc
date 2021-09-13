@@ -8,7 +8,7 @@
 #define ADD(num1, num2) num1+num2
 #define SUBTRACT(num1, num2) num1-num2
 #define MULTIPLY(num1, num2) num1*num2
-#define DIVIDE(num1, num2) num1/num2
+#define DIVIDE(num1, num2) num1/num2 
 
 // sinelength function
 int sine_length(void)
@@ -385,7 +385,7 @@ int pythagoras_func(void)
 }
 
 // calculator function
-int calculator(void)
+int calculator_func(void)
 {
     // variable declaration
     int userinput;
@@ -458,6 +458,74 @@ int calculator(void)
     return 0;
 }
 
+// algebra function
+int algebra_func()
+{
+    // variables to declare 
+    float coefficient, num1, num2, answer;
+    char operator;
+    // print statements (making a menu)
+    printf("enter the coefficient of the unknown\n");
+    scanf("%f", &coefficient);
+    printf("enter the operator of the equation\n");
+    scanf(" %c", &operator);
+    printf("enter first number of the equation\n");
+    scanf("%f", &num1);
+    printf("enter the value the left hand side is equal to\n");
+    scanf("%f", &num2);
+    // if and else
+    if (operator == '+')
+    {
+        // print statement
+        printf("solving eqaution...\n");
+        // solving equation
+        num2 = num2-num1;
+        num1 = num1-num1;
+        answer = num2/coefficient;
+        // printing unknown
+        printf("the unknown is equal to %f\n", answer);
+    } 
+    else if (operator == '-')
+    {
+        // print statement 
+        printf("solving equation...\n");
+        // solving equation
+        num2 = num2 + num1;
+        num1 = num1 + num1;
+        answer = num2/coefficient;
+        // printing unknown
+        printf("the unknown is equal to %f\n", answer);
+    }
+    else if (operator == '*')
+    {
+        // print statement 
+        printf("solving equation...\n");
+        // solving equation
+        coefficient = coefficient * num1;
+        answer = num2/coefficient;
+        // printing unknown
+        printf("the unkown is equal to %f\n", answer);
+    }
+    else if (operator == '/')
+    {
+        // print statement 
+        printf("solving equation...\n");
+        // solving equation
+        num2 = num2  * num1;
+        num1 = num1 * num1;
+        answer = num2/coefficient;
+        // printing unknown 
+        printf("the unknown is equal to %f\n", answer);
+    }
+    else 
+    {
+        // print statement (error)
+        printf("error - exitting program...\n");
+    }
+    // return
+    return 0;
+}
+
 // main function
 int main(void)
 {
@@ -468,7 +536,8 @@ int main(void)
     printf("1.) pythagorus\n");
     printf("2.) trigonometry\n");
     printf("3.) normal calculator\n");
-    printf("4.) exit\n");
+    printf("4.) simple algebra\n");
+    printf("5.) exit\n");
     // scan statement (reading userinput)
     scanf("%d", &userinput);
     // switches 
@@ -487,10 +556,15 @@ int main(void)
         // third case
         case 3: 
             // running calculator function
-            calculator();
+            calculator_func();
             break;
-        // foruth case
+        // fourth case
         case 4:
+            // running algebra function
+            algebra_func();
+            break;
+        // fifth case
+        case 5:
             // print statement (program exit)
             printf("exiting program ...\n");
             break;
