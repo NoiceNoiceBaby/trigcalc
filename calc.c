@@ -1,10 +1,14 @@
 // includes
 #include <stdio.h>
 #include <math.h>
-// definitions
+// macro definitions
 #define PYTHAGORASFORHYP(adj, opp) adj*adj+opp*opp
 #define PYTHAGORASFORADJ(hyp, opp) hyp*hyp-opp*opp
 #define PYTHAGORASFOROPP(hyp, adj) hyp*hyp-adj*adj
+#define ADD(num1, num2) num1+num2
+#define SUBTRACT(num1, num2) num1-num2
+#define MULTIPLY(num1, num2) num1*num2
+#define DIVIDE(num1, num2) num1/num2
 
 // sinelength function
 int sine_length(void)
@@ -380,6 +384,80 @@ int pythagoras_func(void)
     return 0;
 }
 
+// calculator function
+int calculator(void)
+{
+    // variable declaration
+    int userinput;
+    float num1, num2, answer;
+    char operator;
+    // print statements (making a menu)
+    printf("enter your first number\n");
+    scanf("%f", &num1);
+    printf("enter your second number\n");
+    scanf("%f", &num2);
+    printf("which operation do you want to use?\n");
+    printf("1.) add\n");
+    printf("2.) subtract\n");
+    printf("3.) multiply\n");
+    printf("4.) division\n");
+    printf("5.) all\n");
+    printf("6.) exit\n");
+    scanf("%d", &userinput);
+    // switches
+    switch(userinput)
+    {
+        // first case
+        case 1:
+            // addition macrofunction
+            answer = ADD(num1, num2);
+            printf("%f + %f = %f", num1, num2, answer);
+            break;
+        // second case 
+        case 2:
+            // subtraction macrofunction
+            answer = SUBTRACT(num1, num2);
+            printf("%f - %f = %f", num1, num2, answer);
+            break;
+        // third case
+        case 3:
+            // multiply macro function
+            answer = MULTIPLY(num1, num2);
+            printf("%f * %f = %f", num1, num2, answer);
+            break;
+        // fourth case
+        case 4:
+            // division function call
+            answer = DIVIDE(num1, num2);
+            printf("%f / %f = %f", num1, num2, answer);
+            break;
+        // fifth case
+        case 5:
+            // all function calls
+            answer = ADD(num1, num2);
+            printf("%f + %f = %f\n", num1, num2, answer);
+            answer = SUBTRACT(num1, num2);
+            printf("%f - %f = %f\n", num1, num2, answer);
+            answer = MULTIPLY(num1, num2);
+            printf("%f * %f = %f\n", num1, num2, answer);
+            answer = DIVIDE(num1, num2);
+            printf("%f / %f = %f\n", num1, num2, answer);
+            break;
+        // sixth case 
+        case 6:
+            // program exit 
+            printf("exiting program...\n");
+            break;
+        // defualt case 
+        default:
+            // program exit (on error)
+            printf("error - exitting program...\n");
+            break;
+    }
+    // return
+    return 0;
+}
+
 // main function
 int main(void)
 {
@@ -389,7 +467,8 @@ int main(void)
     printf("what type of calculation do you want to do?\n");
     printf("1.) pythagorus\n");
     printf("2.) trigonometry\n");
-    printf("3.) exit\n");
+    printf("3.) normal calculator\n");
+    printf("4.) exit\n");
     // scan statement (reading userinput)
     scanf("%d", &userinput);
     // switches 
@@ -407,10 +486,15 @@ int main(void)
             break;
         // third case
         case 3: 
+            // running calculator function
+            calculator();
+            break;
+        // foruth case
+        case 4:
             // print statement (program exit)
             printf("exiting program ...\n");
             break;
-        // default case
+        // defualt case
         default:
             // print statement (program exit on error)
             printf("error - exiting program ...\n");
